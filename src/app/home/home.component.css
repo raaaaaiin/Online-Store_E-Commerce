@@ -1,0 +1,31 @@
+
+.maintext {
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: -10px;
+    color: #1e272e;
+}
+
+.bgsrc {
+    background-image: url("bg2.png");
+}
+
+.sub {
+    font-family: "Plak W01 Black";
+    font-size: 25px;
+    font-style: normal;
+    letter-spacing: 2px;
+    color: #1e272e;
+}
+
+.message {
+    font-family: "Roboto";
+    font-size: 15px;
+    color: gray;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}

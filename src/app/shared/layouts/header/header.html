@@ -1,0 +1,35 @@
+<div class="socdiv">
+	<div style="height:72%;">
+		<div *ngIf="focus" style="height:80%">
+			<img style="margin-left:5px;padding:0;" class="funclogo" (click)='sendData()' [src]='defaultselection' /><br />
+		</div>
+
+	</div>
+	<a class="soclogo fblogo" href="www.wewe.com" title="photo" id="photo"></a>
+	<br><br><br>
+	<a class="soclogo twitterlogo" href="www.wewe.com" title="photo" id="photo"></a>
+	<br><br><br>
+	<a class="soclogo ytlogo" href="www.wewe.com" title="photo" id="photo"></a>
+
+</div>
+
+<div class='header' style='position:fixed; z-index:2;'>
+
+	<table>
+		<th class='title'><input class='title' type='submit' value='NLx' ></th>
+		<th class='subs'><input id='mainbutton' routerLink='/home' type='submit' value='Products' (click)="clickproducttab();home();hide(true)"></th>
+		<th class='subs'><input id='mainbutton' routerLink='/login' type='submit' value='Log In' (click)="clicksignup();hide(false)"></th>
+		<th class='subs'><input id='mainbutton' routerLink='/signup' type='submit' value='Sign Up' (click)="clicksignup();hide(false)"> </th>
+		<th class='subs'><input id='mainbutton' routerLink='/about' type='submit' value='About Us' (click)="clicksignup();hide(false)"></th>
+
+		<th colspan="5">
+			<div  class="search-container">
+				<form *ngIf="focus" action="/search" method="get">
+					<input class="search expandright" id="searchright" type="search" name="q" placeholder="Search" [(ngModel)]='listFilter'>
+					<label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+				</form>
+			</div>
+		</th>
+	</table>
+
+</div>

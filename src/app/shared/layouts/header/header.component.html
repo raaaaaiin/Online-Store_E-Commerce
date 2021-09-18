@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(16,9,108)">
+    <a class="navbar-brand" href="#"><span stlye="padding-left:50px;padding-right:50px;">Phil-Kor</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+
+
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">{{'header.home' | translate}} <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+        <a class="nav-link" href="#">{{'header.service' | translate}}</a>
+    </li> -->
+            <li class="nav-item active" *ngIf="user_role == 'buyer'">
+                <a class="nav-link" routerLink="/buyer-dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'admin'">
+                <a class="nav-link" routerLink="/admin-dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'seller'">
+                <a class="nav-link" routerLink="/seller-dashboard">Dashboard</a>
+            </li>
+
+            <li class="nav-item active" *ngIf="user_role == 'buyer'">
+                <a class="nav-link" routerLink="/my-order">{{'header.order' | translate}}</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'admin'">
+                <a class="nav-link" routerLink="/all-order">{{'header.order' | translate}}</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'seller'">
+                <a class="nav-link" routerLink="/orders">{{'header.order' | translate}}</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'seller'">
+                <a class="nav-link" routerLink="/seller/product">{{'header.product' | translate}}</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'admin'">
+                <a class="nav-link" routerLink="/admin/product">{{'header.product' | translate}}</a>
+            </li>
+            <li class="nav-item active" *ngIf="user_role == 'admin'">
+                <a class="nav-link" routerLink="/admin/user">{{'header.user' | translate}}</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/contact-us">{{'header.contact_us' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="!logged_in">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/sign-in">{{'header.signin' | translate}}</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/sign-up">{{'header.signup' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="logged_in">
+            <li class="nav-item active">
+                <a class="nav-link sim-pointer" routerLink="/my-profile">{{'header.my_profile' | translate}}</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link sim-pointer" (click)="logOut()" routerLink="/sign-in">{{'header.signout' | translate}}</a>
+            </li>
+        </ul>
+       
+
+    </div>
+</nav>

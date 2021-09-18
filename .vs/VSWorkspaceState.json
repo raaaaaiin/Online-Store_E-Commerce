@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\admin",
+    "\\src\\app\\admin\\admin-dashboard",
+    "\\src\\app\\admin\\admin-login",
+    "\\src\\app\\admin\\services",
+    "\\src\\app\\admin\\user-crud",
+    "\\src\\app\\customer",
+    "\\src\\app\\home"
+  ],
+  "PreviewInSolutionExplorer": false
+}

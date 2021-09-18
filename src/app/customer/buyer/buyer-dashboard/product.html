@@ -1,0 +1,85 @@
+<!--<input type='text'
+       [(ngModel)]='listFilter' />
+<br />-->
+
+<div id='interchange' class='bodyproduct'>
+
+  <span class="producttext-line">Promotions <hr style="margin-left:10%;width:80%;border-width:1px solid red" /></span>
+
+  <image-slide></image-slide>
+  <br /><br />
+  <span class="producttext-line">Categories <hr style="margin-left:10%;width:80%;border-width:1px solid red" /></span>
+ 
+  <categ-box></categ-box>
+  <br /><br />
+        <span class="producttext-line">Featured Item <hr style="margin-left:10%;width:80%;border-width:1px solid red" /></span>
+ 
+  <div style="display:inline;" *ngFor='let product of (filteredProducts ? filteredProducts.slice(0,upperlimit) : [])'>
+    <div class='showbooks' [routerLink]="['/product',product.id]" (click)="clickProductevent()">
+      <div class='bookimg'><img class='img' [src]='product.imagesource' /></div>
+      <div class=details>
+        <div class="container">
+          <div style="    width: 30%;
+    padding-top: 5px;
+">
+            <span class='ratingcount'>({{product.ratingsrespondents}})</span>
+          </div>
+          <div style="width:100%;text-align:right"><span class='price'>{{product.price | currency:'₱':true}}</span></div>
+        </div>
+        <div style='text-align: right;'><span style='text-align:right;' class='oldprice'>{{product.oldprice | currency:'₱':true}}</span></div>
+        
+        <div style="height:100px; display:table;  max-height:100px">
+          <span class='productname' style=" display: table-cell; vertical-align: middle; overflow:hidden;max-height:100px">
+            {{ (product.productname.length>80)? (product.productname | slice:0:80)+'..':(product.productname) }}
+          </span>
+        </div>
+        
+        <span class='loc'>
+          &#9906; {{product.loc}}
+        </span>
+        <span class='quantity'>({{product.quantity}})</span>
+        <br>
+      </div>
+    </div>
+
+    <div *ngIf='changeview' class='listview' [routerLink]="['/product',product.id]" (click)="clickProductevent()">
+      <div class='bookimglist'>
+        <img class='imglist' [src]='product.imagesource' />
+      </div>
+      <div class='detailslistview'>
+        <div class='container'>
+          <span class='productname' style='; width:100%'>{{ (product.productname.length>80)? (product.productname | slice:0:80)+'..':(product.productname) }}</span>
+          <div style='text-align: right; display:inline-block;'><span style='text-align: right;' class='price'>{{product.price | currency:'₱':true}}</span></div>
+        </div>
+        <div class='container'>
+          <div style="position: absolute; z-index: 2000; overflow:hidden" [style.width.px]="(product.ratings * 15)">
+            <span class='ratings'>★★★★★</span>
+          </div>
+          <div>
+            <span class='ratings'>☆☆☆☆☆</span>
+          </div>
+          <span class='ratingcountlist' style='margin-right:84px; width:100%; padding-top:4px;'>({{product.ratingsrespondents}})</span>
+          <div style='text-align: right;'><strike><span style='text-align:right;' class='oldprice'>{{product.oldprice | currency:'₱':true}}</span></strike></div>
+        </div>
+        <div class='container'>
+          <paragraph style='width :80%; height: 100px; margin-left:10px; text-align:justify; font-size:12px; padding:10px'>
+            {{product.description}}
+          </paragraph>
+        </div>
+        <span class='loc'>&#9906; {{product.loc}}</span>
+        <span class='quantity'>({{product.quantity}})</span>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div style="    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:25px;
+">
+
+    <button (click)="showmore()" style="width:150px; height:50px">Show more</button>
+  </div>
+</div>
+
+<footer-box></footer-box>

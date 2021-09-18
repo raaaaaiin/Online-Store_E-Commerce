@@ -1,0 +1,94 @@
+<br>
+<div class="row">
+    <div class="col-md-10">
+        <strong *ngIf="user_role == 'buyer'">All Product List</strong>
+        <strong *ngIf="user_role != 'buyer'">Click the product to update</strong>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" *ngIf="user_role != 'buyer'">Buyyer Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Product Name</th>
+            <!-- <th scope="col">Display Image</th> -->
+            <th scope="col">Price</th>
+            <th scope="col">Date</th>
+            <!-- <th scope="col">Description</th> -->
+            <th scope="col">Address</th>
+
+            <th scope="col">Status</th>
+            <th scope="col" *ngIf="user_role != 'buyer'">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product_data of all_product_data.slice().reverse(); let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td *ngIf="user_role != 'buyer'">{{product_data.buyername}}</td>
+            <td> {{product_data.contact}}</td>
+            <td> {{product_data.product.name}}</td>
+
+            <!--<td>{{product_data.product.uploadPhoto}}</td>-->
+            <td>{{product_data.product.mrp}}</td>
+            <td>{{product_data.dateTime}}</td>
+            <!-- <td></td> -->
+            <td>
+                {{product_data.deliveryAddress.addLine1}}
+                {{product_data.deliveryAddress.addLine2}}
+                {{product_data.deliveryAddress.city}}
+                {{product_data.deliveryAddress.state}}
+                {{product_data.deliveryAddress.zipCode}}
+            </td>
+            <td>
+                {{product_data.itemStatus}}
+            </td>
+            <td *ngIf="user_role != 'buyer'">
+                <span class="sim-pointer" (click)="editOrderPopup(product_data.id)" data-toggle="modal" data-target="#addEditProductModal">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </span>
+                &nbsp;&nbsp;&nbsp;
+                <span class="sim-pointer" (click)="deleteOrder(product_data.id,i+1)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="addEditProductModal" tabindex="-1" role="dialog" aria-labelledby="addEditUserTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{popup_header}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <form [formGroup]="addEditProductForm">
+                            <div class="form-group">
+                                <label for="productStatus">Status</label>
+                                <select class="form-control" formControlName="status" [ngClass]="{'is-invalid':addEditProduct && rf.status.errors}">
+                                    <option value="For Delivery">For Delivery</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Recieved">Recieved</option>
+                                </select>
+                                <div *ngIf="addEditProduct && rf.status.errors" class="invalid-feedback">
+                                    <div *ngIf="rf.status.errors.required">Select one option</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" (click)="updateOrder()" >Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

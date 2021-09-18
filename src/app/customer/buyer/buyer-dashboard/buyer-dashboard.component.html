@@ -1,0 +1,49 @@
+﻿<br>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Buyer</a></li>
+        <li class="breadcrumb-item"><a routerLink="/buyer-dashboard">Products</a></li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-sm-4 product" style="min-height:530px;" *ngFor="let product of all_products.slice().reverse();">
+
+
+        <div class='showbooks' (click)="buyProduct(product.id)">
+            <div class='bookimg'><img class='img' [src]='product.uploadPhoto' /></div>
+            <div class=details>
+                <div class="containers">
+
+                    <div style="position: absolute; z-index: 2000; overflow:hidden" [style.width.px]="Math.abs(((product.mrp/ (product.dp/5) - 5 )* 10))*15 ">
+                        <span class='ratings'>★★★★★</span>
+                    </div>
+                    <div>
+                        <span class='ratings'>☆☆☆☆☆</span>
+                    </div>
+                    <div style="    width: 50%;
+    padding-top: 5px;
+">
+                        <span class='ratingcount'>({{Math.floor(100-(product.dp/(product.mrp/0.01) * 10000 ))}}% off)</span>
+                    </div>
+                    <div style="width:100%;text-align:right"><span class='price'>{{product.dp | currency:'₱':true}}</span></div>
+                </div>
+                <div style='text-align: right;'><span style='text-align:right;' class='oldprice'>{{product.mrp | currency:'₱':true}}</span></div>
+
+                <div style="height:100px; display:table;  max-height:100px">
+                    <span class='productname' style=" display: table-cell; vertical-align: middle; overflow:hidden;max-height:100px">
+                        {{ (product.name.length>80)? (product.name | slice:0:80)+'..':(product.name) }}
+                    </span>
+                </div>
+
+                <span class='loc'>
+                    &#9930;General Trias, 4107 Cavite
+                </span>
+                <span class='quantity'>(Available)</span>
+                <br>
+            </div>
+        </div>
+
+
+       
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Plak W01 Black";
+  src: url("app/font/649da2af5701f57e47ba8ba0b3219ef1.eot"); /* IE9*/
+  src: url("app/font/649da2af5701f57e47ba8ba0b3219ef1.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("app/font/649da2af5701f57e47ba8ba0b3219ef1.woff2") format("woff2"), /* chrome、firefox */
+  url("app/font/649da2af5701f57e47ba8ba0b3219ef1.woff") format("woff"), /* chrome、firefox */
+  url("app/font/649da2af5701f57e47ba8ba0b3219ef1.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("app/font/649da2af5701f57e47ba8ba0b3219ef1.svg#Plak W01 Black") format("svg"); /* iOS 4.1- */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, head {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+table {
+  width: 100%;
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  border-spacing: 0px;
+}
+th {
+  vertical-align: middle;
+}
+tr {
+  height: 50px;
+}
+th > input {
+
+  box-sizing: border-box;
+  font-family: "Times new roman";
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: darkgray;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+.bodys {
+  width: 82%;
+  height: 100%;
+  background: #ffffff;
+  margin-left: 9%;
+}
+.bodyproduct {
+  width: 82%;
+  height: auto;
+  background: #ffffff;
+  margin-left: 9%;
+}
+.wall {
+
+  width: 91%;
+  height: 98%;
+  margin-right: 0px;
+}
